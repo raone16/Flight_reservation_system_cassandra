@@ -41,12 +41,6 @@ public class FlightDetails {
 		return session;
 	}
 	   private void writeToDb(Booking b)  {
-		   String query ="select bookid from booking where bookid="+b.BookId+" "+"ALLOW FILTERING";
-		   //Statement select = QueryBuilder.select().column("BookId").from("flight","booking").where(QueryBuilder.eq("bookid", b.BookId));
-		   ResultSet rs = con.execute(query);
-		   Row row = rs.one();
-		   if(row==null) {
-		   
       	   
       	   try {
       		con.execute(boundStatement.bind(this.FlightNo,b.BookId,b.seatsBooked,b.isMealPreference(),b.getStatus(),b.getCost()));
@@ -56,7 +50,6 @@ public class FlightDetails {
       		 System.out.println("error while inserting"+e.getMessage());
       	 }
       }
-	   }
 	public int getFlightNo() {
 		return FlightNo;
 	}

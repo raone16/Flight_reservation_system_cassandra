@@ -141,9 +141,7 @@ public class BookingSystem {
 		 
 		 switch(ch) {
 		 	case 0:
-			    con.close();
-			    return;
-		 		//break;
+			    break;
 		 	case 1:
 		 		addflight();
 		 		break;
@@ -213,6 +211,7 @@ public class BookingSystem {
 		 
 	}
 	input.close();
+	con.close();
 	}
 
 }
