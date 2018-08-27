@@ -8,8 +8,6 @@ import org.apache.log4j.BasicConfigurator;
 import com.datastax.driver.core.BoundStatement;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.PreparedStatement;
-import com.datastax.driver.core.ResultSet;
-import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 import com.datastax.driver.core.Statement;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
@@ -265,6 +263,7 @@ public class Booking{
 			   seat = in.nextInt();
 			   if(avail.contains(seat)) {
 				   temp.add(seat);
+				   avail.remove(avail.indexOf(seat));
 				   n--;
 			   }
 			   else 
