@@ -257,18 +257,16 @@ public class Booking{
 	   else
 	   {
 		   Scanner in = new Scanner(System.in);
-		   int seat;
+		   int seat=0;
 		   while(n>0) {
-			   System.out.println("enter the prefered seat no");
-			   seat = in.nextInt();
-			   if(avail.contains(seat)) {
+			   
 				   temp.add(seat);
-				   avail.remove(avail.indexOf(seat));
+				  // avail.remove(avail.indexOf(seat));
 				   n--;
-			   }
-			   else 
-				   System.out.println("seat "+seat+" is not available select someother seat"); 
+				   seat++;
+			  
 		 }
+		   System.out.println("Seats booked"+temp);
 		   if(classPref) {
 			   tcost += getBaseFareBis()*temp.size();
 		   }
@@ -317,7 +315,7 @@ public class Booking{
 	
 	public List<Integer> bisAvailability() {
 	 List<Integer> avail = new ArrayList<Integer>();
-	 	for(int i=0;i<5;i++) {
+	 	for(int i=0;i<=5;i++) {
 	 		if(!this.seat[i])
 	 			avail.add(i);
 	 	}
